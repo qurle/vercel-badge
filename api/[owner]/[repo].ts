@@ -49,9 +49,6 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
           .pipe(res);
       }
 
-      console.log(typeof req.query.previews)
-      console.log(previews)
-
       const vercelDeployments = response.data.filter(
         (deployment) =>
           deployment.creator.login === "vercel[bot]" &&
