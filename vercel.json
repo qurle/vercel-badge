@@ -6,5 +6,6 @@
     "api/[owner]/[repo].ts": {
       "includeFiles": "assets/**"
     }
-  }
+  },
+  "trailingSlash": false
 }

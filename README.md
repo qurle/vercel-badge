@@ -19,6 +19,7 @@ Replace `[repo]` with the repository name.
 | Parameter | Types                                                                           | Description                             | Example                                                                       |
 | --------- | ------------------------------------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------------------- |
 | style     | Default: `flat`<br>Available: `flat`, `flat-square`, `for-the-badge`, `plastic` | Select the visual style for your badge. | `https://vercelbadge.vercel.app/api/datejer/vercel-badge?style=for-the-badge` |
+| previews     | Default: `false`<br>Available: `false`, `true` | Use preview deployments for your badhe. | `https://vercelbadge.vercel.app/api/datejer/vercel-badge?previews=true` |
 
 ## Examples
 

@@ -27,6 +27,10 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   )
     style = req.query.style;
 
+  let previews;
+  if (!req.query.previews) previews = "false";
+  else previews = req.query.previews;
+
   axios
     .get(`https://api.github.com/repos/${owner}/${repo}/deployments`, {
       headers: {
@@ -45,11 +49,15 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
           .pipe(res);
       }
 
+      console.log(typeof req.query.previews)
+      console.log(previews)
+
       const vercelDeployments = response.data.filter(
         (deployment) =>
           deployment.creator.login === "vercel[bot]" &&
           deployment.creator.html_url === "https://github.com/apps/vercel" &&
-          deployment.creator.type === "Bot"
+          deployment.creator.type === "Bot" &&
+          (previews === "true" || deployment.environment === "Production")
       );
 
       if (vercelDeployments.length <= 0) {
