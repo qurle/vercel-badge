@@ -4,7 +4,7 @@ import fs from "fs";
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-// export default function handler(req: VercelRequest, res: VercelResponse) {
+export default function handler(req: VercelRequest, res: VercelResponse) {
   const { owner, repo } = req.query;
 
   if (!owner || typeof owner !== "string") {
@@ -48,9 +48,6 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
           )
           .pipe(res);
       }
-
-      console.log(typeof req.query.previews)
-      console.log(previews)
 
       const vercelDeployments = response.data.filter(
         (deployment) =>
